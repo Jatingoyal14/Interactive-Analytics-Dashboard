@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Modern Business Intelligence</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__content">
+            <div class="header__left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics Pro</span>
+                </div>
+            </div>
+            
+            <div class="header__center">
+                <div class="search-container">
+                    <input type="text" placeholder="Search metrics, reports..." class="search-input" id="searchInput">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+            
+            <div class="header__right">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="https://via.placeholder.com/32/32/png" alt="Profile" class="profile-avatar">
+                    <span class="profile-name">John Doe</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar__nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="analytics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="reports">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <div class="time-selector">
+                <button class="time-btn active" data-range="7">Last 7 days</button>
+                <button class="time-btn" data-range="30">Last 30 days</button>
+                <button class="time-btn" data-range="90">Last 3 months</button>
+            </div>
+            <div class="export-buttons">
+                <button class="btn btn--outline btn--sm export-btn" data-format="csv">
+                    <i class="fas fa-file-csv"></i> CSV
+                </button>
+                <button class="btn btn--outline btn--sm export-btn" data-format="pdf">
+                    <i class="fas fa-file-pdf"></i> PDF
+                </button>
+                <button class="btn btn--outline btn--sm export-btn" data-format="excel">
+                    <i class="fas fa-file-excel"></i> Excel
+                </button>
+            </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card" data-metric="revenue">
+                <div class="kpi-card__header">
+                    <h3>Total Revenue</h3>
+                    <i class="fas fa-dollar-sign kpi-icon"></i>
+                </div>
+                <div class="kpi-card__value">
+                    <span class="kpi-number" data-target="195000">$0</span>
+                </div>
+                <div class="kpi-card__change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+9.6%</span> from last month
+                </div>
+            </div>
+
+            <div class="kpi-card" data-metric="users">
+                <div class="kpi-card__header">
+                    <h3>Total Users</h3>
+                    <i class="fas fa-users kpi-icon"></i>
+                </div>
+                <div class="kpi-card__value">
+                    <span class="kpi-number" data-target="7600">0</span>
+                </div>
+                <div class="kpi-card__change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+10.5%</span> from last month
+                </div>
+            </div>
+
+            <div class="kpi-card" data-metric="conversion">
+                <div class="kpi-card__header">
+                    <h3>Conversion Rate</h3>
+                    <i class="fas fa-percentage kpi-icon"></i>
+                </div>
+                <div class="kpi-card__value">
+                    <span class="kpi-number" data-target="4.8">0</span><span>%</span>
+                </div>
+                <div class="kpi-card__change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+0.3%</span> from last month
+                </div>
+            </div>
+
+            <div class="kpi-card" data-metric="satisfaction">
+                <div class="kpi-card__header">
+                    <h3>User Satisfaction</h3>
+                    <i class="fas fa-heart kpi-icon"></i>
+                </div>
+                <div class="kpi-card__value">
+                    <span class="kpi-number" data-target="94">0</span><span>%</span>
+                </div>
+                <div class="kpi-card__change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>+2%</span> from last month
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+            <!-- Revenue Chart -->
+            <div class="chart-card">
+                <div class="chart-card__header">
+                    <h3>Revenue Trend</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-chart="revenue" data-type="line">Line</button>
+                        <button class="chart-btn" data-chart="revenue" data-type="bar">Bar</button>
+                    </div>
+                </div>
+                <div class="chart-container" style="position: relative; height: 300px;">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Users Chart -->
+            <div class="chart-card">
+                <div class="chart-card__header">
+                    <h3>User Growth</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-chart="users" data-type="area">Area</button>
+                        <button class="chart-btn" data-chart="users" data-type="bar">Bar</button>
+                    </div>
+                </div>
+                <div class="chart-container" style="position: relative; height: 300px;">
+                    <canvas id="usersChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Geographic Distribution -->
+            <div class="chart-card">
+                <div class="chart-card__header">
+                    <h3>Geographic Distribution</h3>
+                </div>
+                <div class="chart-container" style="position: relative; height: 300px;">
+                    <canvas id="geoChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="performance-card">
+                <div class="chart-card__header">
+                    <h3>Performance Metrics</h3>
+                </div>
+                <div class="performance-list">
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <span class="metric-name">Page Load Time</span>
+                            <span class="metric-value">2.3s</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 77%"></div>
+                        </div>
+                        <span class="status status--success">Good</span>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <span class="metric-name">Bounce Rate</span>
+                            <span class="metric-value">32%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 68%"></div>
+                        </div>
+                        <span class="status status--success">Excellent</span>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <span class="metric-name">Conversion Rate</span>
+                            <span class="metric-value">4.8%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 96%"></div>
+                        </div>
+                        <span class="status status--success">Good</span>
+                    </div>
+                    <div class="performance-item">
+                        <div class="performance-info">
+                            <span class="metric-name">User Satisfaction</span>
+                            <span class="metric-value">94%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 94%"></div>
+                        </div>
+                        <span class="status status--success">Excellent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="activities-card">
+            <div class="chart-card__header">
+                <h3>Recent Activities</h3>
+                <button class="btn btn--outline btn--sm">View All</button>
+            </div>
+            <div class="activities-list" id="activitiesList">
+                <!-- Activities will be populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for detailed views -->
+    <div class="modal hidden" id="detailModal">
+        <div class="modal__backdrop"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="modalTitle">Detailed View</h2>
+                <button class="modal__close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal__body" id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
