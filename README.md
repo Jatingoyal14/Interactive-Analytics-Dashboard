@@ -1,7 +1,7 @@
 ## Interactive Analytics Dashboard 
 
 ### **Project Overview**
-I've created a professional-grade interactive analytics dashboard that demonstrates modern frontend technologies. This project simulates a real business intelligence platform with live data visualization, responsive design, and advanced user interactions.
+This is a professional-grade interactive analytics dashboard that demonstrates modern frontend technologies. This project simulates a real business intelligence platform with live data visualization, responsive design, and advanced user interactions.
 
 ### **🛠️ Technologies and Concepts Used**
 
