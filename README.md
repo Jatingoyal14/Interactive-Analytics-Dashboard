@@ -151,5 +151,4 @@ The architecture supports easy additions like:
 - Custom chart builders
 - Multi-tenant support
 
-This project showcases ability to create production-ready, modern web applications using cutting-edge frontend technologies. It demonstrates both technical expertise and practical business application understanding, making it an excellent portfolio piece for frontend developer positions.
-
+This project showcases ability to create production-ready, modern web applications using cutting-edge frontend technologies.
